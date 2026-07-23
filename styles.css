@@ -394,7 +394,7 @@ h2 em {
     height: 200px;
     object-fit: contain;
     mix-blend-mode: multiply;
-    filter: grayscale(1);
+    filter: grayscale(0);
     opacity: .7
 }
 
