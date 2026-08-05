@@ -540,6 +540,22 @@ h2 em {
     transform: scale(.82)
 }
 
+.project-preview--desktop {
+    height: auto;
+    aspect-ratio: 1412 / 900
+}
+
+.project-preview--desktop iframe {
+    width: 400%;
+    height: auto;
+    aspect-ratio: 1412 / 900;
+    transform: scale(.25)
+}
+
+.project:hover .project-preview--desktop iframe {
+    transform: scale(.255)
+}
+
 .project>p {
     color: var(--gold);
     font-size: 10px;
