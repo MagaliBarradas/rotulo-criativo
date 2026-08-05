@@ -546,14 +546,14 @@ h2 em {
 }
 
 .project-preview--desktop iframe {
-    width: 400%;
+    width: 260%;
     height: auto;
     aspect-ratio: 1412 / 900;
-    transform: scale(.25)
+    transform: scale(.3846)
 }
 
 .project:hover .project-preview--desktop iframe {
-    transform: scale(.255)
+    transform: scale(.39)
 }
 
 .project>p {
