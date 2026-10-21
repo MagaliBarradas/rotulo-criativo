@@ -78,3 +78,89 @@ footer{z-index:7;margin-top:-18px;border-radius:22px 22px 0 0}
 footer{position:fixed;inset:auto 0 0;margin:0;border-radius:0;z-index:45}
 @media(max-width:820px){.clients,.services,.projects,.about,.contact{margin-top:0}.stack-card{border-radius:16px 16px 0 0}footer{margin:0;border-radius:0}}
 @media(max-width:560px){.stack-card{border-radius:14px 14px 0 0}}
+
+/* Legibilidade, transicao entre cards e acabamento responsivo */
+body{font-size:16px}
+.nav{font-size:15px}
+.header-cta,.text-link{font-size:14px}
+.eyebrow{font-size:12px;line-height:1.45}
+.lead{font-size:clamp(18px,1.45vw,21px)}
+.clients>p{font-size:11px}
+.section-intro,.about-copy>p:not(.eyebrow),.contact-copy>p:not(.eyebrow){font-size:clamp(16px,1.25vw,19px)}
+.service-card p,.project-description{font-size:clamp(15px,1.1vw,17px)}
+.service-card .service-meta,.project-heading p,.contact label{font-size:11px}
+.stats dd,footer{font-size:12px}
+
+/* O JS atualiza esta variavel enquanto o card seguinte sobe. */
+.stack-card{
+  --stack-progress:0;
+  transform-origin:50% 0;
+  transform:translate3d(0,calc(var(--stack-progress) * -12px),0) scale(calc(1 - var(--stack-progress) * .025));
+  filter:brightness(calc(1 - var(--stack-progress) * .16));
+  opacity:calc(1 - var(--stack-progress) * .1);
+  will-change:transform,filter,opacity;
+  transition:border-radius .25s ease,box-shadow .25s ease;
+}
+.stack-card.is-current{box-shadow:0 -24px 70px rgba(4,6,14,.34)}
+
+@media(max-width:1050px){
+  .section{padding-block:clamp(78px,9vw,112px)}
+  .hero{grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)}
+  .service-card{grid-template-columns:46px minmax(0,1fr) minmax(210px,.7fr)}
+}
+
+@media(max-width:820px){
+  .nav.open{font-size:clamp(28px,7vw,42px)}
+  .hero{min-height:calc(100svh - 58px)}
+  .hero-art{width:min(55vw,460px)}
+  .section h2{font-size:clamp(42px,8vw,64px)}
+  .project-grid{grid-template-columns:1fr}
+  .project-preview{aspect-ratio:16/9}
+  .project-grid{max-width:680px;margin-inline:auto}
+  .service-card p,.project-description{font-size:16px}
+}
+
+@media(max-width:620px){
+  body{padding-bottom:0}
+  .header{padding-inline:18px}
+  .stack-card{
+    position:relative;
+    top:auto;
+    min-height:0;
+    scroll-margin-top:70px;
+    transform:none;
+    filter:none;
+    opacity:1;
+    will-change:auto;
+    border-radius:14px 14px 0 0;
+  }
+  .hero.stack-card{min-height:calc(100svh - 70px);padding-top:112px}
+  .clients.stack-card{min-height:190px}
+  .hero-art{right:-175px;bottom:10px;opacity:.38}
+  .section{padding-block:68px}
+  .section h2{font-size:clamp(40px,11vw,54px)}
+  .lead{font-size:17px;line-height:1.65}
+  .service-card{grid-template-columns:32px minmax(0,1fr)}
+  .service-card .service-meta{padding-left:48px}
+  .project-grid{gap:54px}
+  .project-heading p{font-size:10px}
+  .about{gap:42px}
+  .about-photo{max-height:none}
+  .stats{flex-wrap:wrap}
+  .contact input,.contact select,.contact textarea{font-size:16px;min-height:46px}
+  footer{position:relative;inset:auto;height:auto;min-height:112px;padding:22px 18px;grid-template-columns:1fr;justify-items:center;text-align:center}
+  footer .brand{width:132px;height:44px}
+  .footer-end{justify-content:center}
+  .whatsapp{bottom:16px}
+}
+
+@media(max-width:390px){
+  :root{--pad:17px}
+  .brand{width:140px}
+  .hero h1{font-size:clamp(39px,11.8vw,48px)}
+  .hero-actions{width:100%}
+  .button{max-width:none}
+  .section h2{font-size:clamp(37px,10.7vw,46px)}
+  .service-card{gap:12px}
+  .project-preview{aspect-ratio:4/3}
+}

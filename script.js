@@ -100,3 +100,46 @@ if (hero && !reducedMotion.matches) {
     }
   }, { passive: true });
 }
+
+// Efeito de profundidade na troca dos cards sticky.
+// O card que sai recua ligeiramente enquanto o seguinte ocupa o seu lugar.
+const stackCards = [...document.querySelectorAll('.stack-card')];
+let stackFrame = null;
+
+const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
+
+const updateCardStack = () => {
+  const compactLayout = window.matchMedia('(max-width: 620px)').matches;
+  const stickyTop = window.innerWidth <= 820 ? 70 : 80;
+  const travel = Math.max(window.innerHeight * .44, 260);
+
+  stackCards.forEach((card, index) => {
+    if (compactLayout) {
+      card.style.removeProperty('--stack-progress');
+      card.classList.remove('is-current');
+      return;
+    }
+
+    const nextCard = stackCards[index + 1];
+    const progress = nextCard
+      ? clamp(1 - ((nextCard.getBoundingClientRect().top - stickyTop) / travel))
+      : 0;
+
+    card.style.setProperty('--stack-progress', progress.toFixed(3));
+    card.classList.toggle('is-current', card.getBoundingClientRect().top <= stickyTop + 2 && progress < .96);
+  });
+
+  stackFrame = null;
+};
+
+const requestStackUpdate = () => {
+  if (!stackFrame) stackFrame = requestAnimationFrame(updateCardStack);
+};
+
+if (!reducedMotion.matches && stackCards.length) {
+  updateCardStack();
+  window.addEventListener('scroll', requestStackUpdate, { passive: true });
+  window.addEventListener('resize', requestStackUpdate);
+} else {
+  stackCards.forEach((card) => card.style.setProperty('--stack-progress', '0'));
+}
