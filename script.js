@@ -1,25 +1,5 @@
-const menuButton = document.querySelector('#menu-button');
-const navigation = document.querySelector('#main-nav');
 const contactForm = document.querySelector('#contact-form');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-function closeMenu() {
-  navigation.classList.remove('open');
-  menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.setAttribute('aria-label', 'Abrir menu');
-  document.body.classList.remove('menu-open');
-}
-
-menuButton.addEventListener('click', () => {
-  const isOpen = navigation.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-  menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-  document.body.classList.toggle('menu-open', isOpen);
-});
-
-navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-window.addEventListener('resize', () => { if (window.innerWidth > 820) closeMenu(); });
-document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
 
 contactForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -31,28 +11,33 @@ contactForm.addEventListener('submit', (event) => {
 document.querySelector('#year').textContent = new Date().getFullYear();
 
 const hero = document.querySelector('.hero');
-const heroLogo = document.querySelector('.hero-logo img');
+const heroTitle = document.querySelector('.hero-title');
+const heroSymbol = document.querySelector('.floating-symbol');
 
-if (hero && heroLogo && !reducedMotion.matches && window.matchMedia('(pointer: fine)').matches) {
-  const target = { x: 0, y: 0 };
-  const current = { x: 0, y: 0 };
-  let frame;
-
-  const animate = () => {
-    current.x += (target.x - current.x) * .08;
-    current.y += (target.y - current.y) * .08;
-    heroLogo.style.transform = `perspective(900px) rotateX(${current.y}deg) rotateY(${current.x}deg)`;
-    frame = Math.abs(target.x - current.x) + Math.abs(target.y - current.y) > .03 ? requestAnimationFrame(animate) : null;
-  };
-
-  const requestAnimation = () => { if (!frame) frame = requestAnimationFrame(animate); };
-  hero.addEventListener('pointermove', (event) => {
-    const bounds = hero.getBoundingClientRect();
-    target.x = ((event.clientX - bounds.left) / bounds.width - .5) * 7;
-    target.y = ((event.clientY - bounds.top) / bounds.height - .5) * -5;
-    requestAnimation();
+document.querySelectorAll('.hero-title .word').forEach((word) => {
+  [...word.textContent].forEach((letter, index) => {
+    const span = document.createElement('span');
+    span.className = 'letter';
+    span.textContent = letter;
+    span.style.setProperty('--letter-delay', `${index * 26}ms`);
+    span.style.setProperty('--tilt', `${((index % 3) - 1) * 1.4}deg`);
+    word.append(span);
   });
-  hero.addEventListener('pointerleave', () => { target.x = 0; target.y = 0; requestAnimation(); });
+  word.childNodes[0]?.remove();
+});
+
+if (hero && heroTitle && !reducedMotion.matches) {
+  let ticking = false;
+  const updateHeroScroll = () => {
+    const offset = Math.min(window.scrollY, hero.offsetHeight);
+    heroTitle.style.transform = `translate3d(0, ${offset * .1}px, 0)`;
+    if (heroSymbol) heroSymbol.style.setProperty('--scroll-y', `${offset * -.035}px`);
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) requestAnimationFrame(updateHeroScroll);
+    ticking = true;
+  }, { passive: true });
 }
 
 const revealGroups = [
