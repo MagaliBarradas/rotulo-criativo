@@ -4,3 +4,7 @@
 @media(max-width:700px){:root{--pad:20px;--section:82px}.site-header{height:68px}.brand{width:126px;height:42px}.section-header{gap:28px;margin-bottom:48px}.section-header h2,.section-intro h2{font-size:clamp(43px,13vw,68px)}.button{width:100%;padding-inline:16px}.reveal{transform:translateY(18px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 .site-header .brand img{filter:brightness(0)}
+.site-header:not(.is-scrolled){color:var(--off-white)}
+.site-header:not(.is-scrolled) .brand img{filter:brightness(0) invert(1)}
+.site-header:not(.is-scrolled) .header-cta{border-color:var(--off-white)}
+.site-header:not(.is-scrolled) .menu-toggle{border-color:var(--off-white)}
