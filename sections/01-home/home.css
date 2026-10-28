@@ -21,7 +21,7 @@
 .home-title .home-line{position:absolute;margin:0}
 .home-line-design{top:18%;left:1%}
 .home-line-que{top:18%;right:1%}
-.home-line-forma{top:52%;left:4%}
-.home-title .home-accent{top:55%;right:1%;margin:0}
+.home-line-forma{top:54%;left:1%;font-size:.72em}
+.home-title .home-accent{top:55%;right:1%;margin:0;font-size:.82em}
 @media(max-width:1200px){.home-title{font-size:clamp(66px,9vw,108px)}.home-line-design{left:0}.home-line-que{right:0}.home-line-forma{left:2%}.home-title .home-accent{right:0}}
-@media(max-width:700px){.home-stage{align-items:flex-start}.home-title{position:relative;inset:auto;display:grid;grid-template-columns:1fr auto;gap:3px 12px;width:100%;padding-top:66px;font-size:clamp(42px,13vw,56px);line-height:.84;letter-spacing:-.07em}.home-title .home-line{position:static;margin:0}.home-line-design{grid-column:1}.home-line-que{grid-column:2;text-align:right}.home-line-forma{grid-column:1/-1}.home-title .home-accent{grid-column:2;justify-self:end}}
+@media(max-width:700px){.home-stage{align-items:flex-start}.home-title{position:relative;inset:auto;display:grid;grid-template-columns:1fr;gap:2px;width:100%;padding-top:28px;font-size:clamp(40px,12.5vw,52px);line-height:.84;letter-spacing:-.07em}.home-title .home-line{position:static;margin:0;font-size:1em}.home-line-design,.home-line-forma{justify-self:start}.home-line-que,.home-title .home-accent{justify-self:end;text-align:right}}
