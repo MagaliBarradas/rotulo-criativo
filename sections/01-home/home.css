@@ -2,3 +2,16 @@
 @media(hover:hover) and (pointer:fine){.home-line:hover{transform:translateX(8px) scale(1.015) rotate(-.3deg)}.home-accent:hover{transform:translateX(-8px) scale(1.02) rotate(.3deg)}}
 @media(max-width:980px){.home-title{font-size:clamp(64px,13vw,126px)}.home-bottom{grid-template-columns:1fr 2fr}.home-index-right{display:none}.home-line-detail{display:none}.home-media img{object-position:54% center}}
 @media(max-width:700px){.home{min-height:100svh;padding:92px 20px 42px}.home-meta{font-size:7px}.home-stage{align-items:flex-start;min-height:clamp(390px,61vh,540px);padding-top:70px}.home-title{font-size:clamp(53px,16.2vw,76px);line-height:.82}.home-line-indent{margin-left:0}.home-accent{margin-left:14%}.home-shape{right:4%;bottom:4%;width:58px}.home-bottom{grid-template-columns:1fr;margin-top:10px}.home-index{display:none}.home-intro p{max-width:430px}.actions{align-items:stretch;flex-direction:column;gap:18px}.actions .text-link{align-self:flex-start}.home-media img{object-position:54% center}.home-media:after{background:linear-gradient(90deg,rgba(11,11,12,.57),rgba(11,11,12,.12) 60%,rgba(11,11,12,.38)),linear-gradient(180deg,rgba(11,11,12,.36),transparent 35%,rgba(11,11,12,.75))}}
+
+/* Layered hero: city background, headline, then central portrait. */
+.home-media{z-index:0}
+.home-media:after{background:linear-gradient(90deg,rgba(5,9,10,.76) 0%,rgba(5,9,10,.34) 42%,rgba(5,9,10,.52) 100%),linear-gradient(180deg,rgba(5,9,10,.38) 0%,transparent 28%,rgba(5,9,10,.72) 100%)}
+.home-person{position:absolute;z-index:2;inset:0;pointer-events:none}
+.home-person img{width:100%;height:100%;object-fit:cover;object-position:center center}
+.home-meta,.home-bottom{position:relative;z-index:3}
+.home-title{z-index:1;color:#fff;text-shadow:0 3px 32px rgba(0,0,0,.72),0 1px 2px rgba(0,0,0,.9)}
+.home-accent{margin-left:62%;color:#24c2c2;text-shadow:0 3px 30px rgba(0,0,0,.82)}
+.home-shape,.home-line-detail{z-index:3}
+.home-intro p{position:relative;text-shadow:0 2px 18px rgba(0,0,0,.75)}
+@media(max-width:980px){.home-accent{margin-left:48%}}
+@media(max-width:700px){.home-accent{margin-left:38%}.home-person img{object-position:54% center}.home-media:after{background:linear-gradient(90deg,rgba(5,9,10,.72),rgba(5,9,10,.25) 62%,rgba(5,9,10,.48)),linear-gradient(180deg,rgba(5,9,10,.42),transparent 33%,rgba(5,9,10,.8))}}
