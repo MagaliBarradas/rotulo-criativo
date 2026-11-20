@@ -1,0 +1,18 @@
+:root{--content-inset:max(var(--pad),calc((100vw - var(--max))/2))}
+
+/* Régua horizontal única para toda a página. */
+.site-header,
+.home,
+.destaques,
+.servicos,
+.planos,
+.sobre,
+.contato,
+.footer{padding-inline:var(--content-inset)}
+
+.clientes-title{padding-inline:var(--content-inset)}
+.logo-group{padding-left:var(--content-inset)}
+
+@media(max-width:700px){
+  :root{--content-inset:20px}
+}
