@@ -10,3 +10,4 @@
 .servicos .section-header>p:last-child{max-width:650px;margin:clamp(28px,3vw,42px) 0 0;font-family:Inter,Arial,sans-serif;font-size:clamp(15px,1.15vw,18px);font-weight:400;line-height:1.62}
 .service-card h3{font-family:Inter,Arial,sans-serif;font-weight:500;line-height:1;letter-spacing:-.052em;text-transform:none}
 .service-card p{font-family:Inter,Arial,sans-serif;font-size:15px;font-weight:400;line-height:1.65}
+@media(max-width:700px){.servicos .section-header h2{font-size:clamp(40px,11.5vw,48px)}}
