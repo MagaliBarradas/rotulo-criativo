@@ -4,7 +4,7 @@
 
 /* A tipografia segue a linguagem editorial estabelecida pela hero. */
 .servicos .section-header{display:block}
-.servicos .section-header .eyebrow{margin-bottom:clamp(46px,6vw,78px)}
+.servicos .section-header .eyebrow{margin-bottom:clamp(18px,2vw,28px);font-size:12px;letter-spacing:.14em}
 .servicos .section-header h2{max-width:780px;font-family:Inter,Arial,sans-serif;font-size:clamp(48px,4.25vw,76px);font-weight:500;line-height:.98;letter-spacing:-.062em;text-transform:none}
 .servicos .section-header h2 .service-title-muted{color:#bdbdbd;font-weight:400}
 .servicos .section-header>p:last-child{max-width:650px;margin:clamp(28px,3vw,42px) 0 0;font-family:Inter,Arial,sans-serif;font-size:clamp(15px,1.15vw,18px);font-weight:400;line-height:1.62}
