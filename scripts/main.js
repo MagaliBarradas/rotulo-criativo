@@ -2,10 +2,6 @@ const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const header=document.querySelector('[data-header]');
 const toggle=document.querySelector('.menu-toggle');
 const menu=document.querySelector('.mobile-menu');
-const main=document.querySelector('main');
-const servicesSection=document.querySelector('#servicos');
-const projectsSection=document.querySelector('#projetos');
-if(main&&servicesSection&&projectsSection)main.insertBefore(servicesSection,projectsSection);
 document.querySelector('#year').textContent=new Date().getFullYear();
 function closeMenu(){toggle?.setAttribute('aria-expanded','false');toggle?.setAttribute('aria-label','Abrir menu');menu?.classList.remove('is-open');document.body.classList.remove('menu-open')}
 toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));toggle.setAttribute('aria-label',open?'Abrir menu':'Fechar menu');menu?.classList.toggle('is-open',!open);document.body.classList.toggle('menu-open',!open)});
