@@ -5,8 +5,9 @@
 @media(max-width:700px){:root{--pad:20px;--section:82px}.site-header{height:68px}.brand{width:126px;height:42px}.section-header{gap:28px;margin-bottom:48px}.section-header h2,.section-intro h2{font-size:clamp(43px,13vw,68px)}.button{width:100%;padding-inline:16px}.reveal{transform:translateY(18px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 .site-header,.site-header.is-scrolled,.site-header:not(.is-scrolled){color:var(--black);background:#fff;backdrop-filter:none}
-.site-header .brand img,.site-header:not(.is-scrolled) .brand img{content:url("../logo-rotulo-azul.png");filter:none}
+.site-header .brand img,.site-header:not(.is-scrolled) .brand img{content:url("../logo-rotulo-azul.png");filter:none;transform:scale(1.65);transform-origin:left center}
 .site-header .header-cta,.site-header:not(.is-scrolled) .header-cta{position:relative;border-color:transparent}
 .header-cta:after{content:"";position:absolute;right:0;bottom:0;left:0;height:1px;background:var(--petrol);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
 .header-cta:hover:after,.header-cta:focus-visible:after{transform:scaleX(1);transform-origin:left}
 .site-header:not(.is-scrolled) .menu-toggle{border-color:var(--petrol)}
+.text-link{border-bottom-color:transparent}
