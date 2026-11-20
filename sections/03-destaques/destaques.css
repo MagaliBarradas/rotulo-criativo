@@ -15,6 +15,8 @@
 .work-meta{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding-top:18px}
 .work-meta h3{margin:0;font:500 clamp(22px,2.1vw,34px)/1 Inter,Arial,sans-serif;letter-spacing:-.045em}
 .work-meta p{margin:0;color:#8f9295;font-size:9px;letter-spacing:.12em;text-align:right;text-transform:uppercase}
+.work-more{display:flex;justify-content:center;margin-top:clamp(54px,7vw,96px)}
+.work-more .button{min-width:220px}
 
 @media(max-width:700px){
   .work-intro h2{font-size:clamp(40px,11.5vw,48px)}

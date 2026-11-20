@@ -1,0 +1,5 @@
+.work-page-section{padding-top:clamp(150px,14vw,230px)}
+.work-page-section .work-intro h1{margin:0;font:400 clamp(48px,4.25vw,76px)/.98 Inter,Arial,sans-serif;letter-spacing:-.062em}
+.work-page-section .work-intro h1 span{color:#a9aaac}
+.work-page-section .work-meta h2{margin:0;font:500 clamp(22px,2.1vw,34px)/1 Inter,Arial,sans-serif;letter-spacing:-.045em}
+@media(max-width:700px){.work-page-section{padding-top:120px}.work-page-section .work-intro h1{font-size:clamp(40px,11.5vw,48px)}}
